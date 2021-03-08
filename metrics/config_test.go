@@ -1,3 +1,5 @@
+// +build !nostackdriver
+
 /*
 Copyright 2018 The Knative Authors
 
@@ -47,7 +49,6 @@ const (
 	eventingDomain         = "knative.dev/eventing"
 	internalEventingDomain = "knative.dev/internal/eventing"
 	customSubDomain        = "test.domain"
-	testComponent          = "testComponent"
 	testProj               = "test-project"
 	anotherProj            = "another-project"
 )
@@ -1047,8 +1048,8 @@ func TestStackdriverRecord(t *testing.T) {
 		},
 	}
 
-	servedCount := stats.Int64("request_count", "Number of requests", stats.UnitNone)
-	statCount := stats.Int64("stat_errors", "Number of errors calling stat", stats.UnitNone)
+	servedCount := stats.Int64("request_count", "Number of requests", stats.UnitDimensionless)
+	statCount := stats.Int64("stat_errors", "Number of errors calling stat", stats.UnitDimensionless)
 	emptyTags := map[string]string{}
 
 	for name, data := range testCases {

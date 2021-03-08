@@ -16,7 +16,7 @@ name: Downstream
 
 on:
   pull_request:
-    branches: [ 'master', 'release-*' ]
+    branches: [ 'main', 'master', 'release-*' ]
 
 jobs:
 
@@ -61,6 +61,8 @@ jobs:
           - repo: eventing-prometheus
             org: knative-sandbox
           - repo: eventing-rabbitmq
+            org: knative-sandbox
+          - repo: kn-plugin-admin
             org: knative-sandbox
           - repo: net-certmanager
             org: knative-sandbox
